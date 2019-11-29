@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
 use League\Flysystem\Filesystem;
 use Overtrue\Flysystem\Cos\CosAdapter;
+use Overtrue\Flysystem\Cos\Plugins\FileUrl;
 
 /**
  * Class CosStorageServiceProvider
@@ -25,7 +26,12 @@ class CosStorageServiceProvider extends ServiceProvider
     public function boot()
     {
         Storage::extend('cos', function () {
-            return new Filesystem(new CosAdapter(\config('filesystems.disks.cos')));
+            $adapter = new CosAdapter(\config('filesystems.disks.cos'));
+
+            $filesystem = new Filesystem($adapter);
+            $filesystem->addPlugin(new FileUrl());
+
+            return new Filesystem();
         });
     }
 
