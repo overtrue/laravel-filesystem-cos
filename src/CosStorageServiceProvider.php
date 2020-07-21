@@ -31,7 +31,7 @@ class CosStorageServiceProvider extends ServiceProvider
             $filesystem = new Filesystem($adapter);
             $filesystem->addPlugin(new FileUrl());
 
-            return new Filesystem();
+            return $filesystem;
         });
     }
 
