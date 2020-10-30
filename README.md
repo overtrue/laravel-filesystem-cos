@@ -48,7 +48,7 @@ $ composer require "overtrue/laravel-filesystem-cos" -vvv
 
 > 🚨 请注意：example-1230000001.cos.ap-guangzhou.mycloud.com
 >
-> 其中：bucket: example, app_id: 1230000001, region: ap-guangzhou
+> 其中：**bucket**: example, **app_id**: 1230000001, **region**: ap-guangzhou
 
 # Usage
 
