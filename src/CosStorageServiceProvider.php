@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
 use League\Flysystem\Filesystem;
 use Overtrue\Flysystem\Cos\CosAdapter;
+use Overtrue\Flysystem\Cos\Plugins\FileSignedUrl;
 use Overtrue\Flysystem\Cos\Plugins\FileUrl;
 
 /**
@@ -30,6 +31,7 @@ class CosStorageServiceProvider extends ServiceProvider
 
             $filesystem = new Filesystem($adapter);
             $filesystem->addPlugin(new FileUrl());
+            $filesystem->addPlugin(new FileSignedUrl());
 
             return $filesystem;
         });

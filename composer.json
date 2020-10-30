@@ -2,9 +2,9 @@
     "name": "overtrue/laravel-filesystem-cos",
     "description": "A Cos storage filesystem for Laravel.",
     "require": {
-        "php": ">=5.5.9",
+        "php": ">=7.4",
         "league/flysystem": "^1.0",
-        "overtrue/flysystem-cos": "^2.0.0"
+        "overtrue/flysystem-cos": "^3.0.0"
     },
     "autoload": {
         "psr-4": {

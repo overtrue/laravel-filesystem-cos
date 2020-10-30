@@ -4,7 +4,7 @@
 
 # Requirement
 
-- PHP >= 5.5.9
+- PHP >= 7.4
 
 # Installation
 
@@ -15,6 +15,9 @@ $ composer require "overtrue/laravel-filesystem-cos" -vvv
 # Configuration
 
 1. Add a new disk to your `config/filesystems.php` config:
+
+🚨 当前为 v2 版本，v2 和 v1 在配置写法上有差异，升级请注意。
+
  ```php
  <?php
 
@@ -23,23 +26,29 @@ $ composer require "overtrue/laravel-filesystem-cos" -vvv
         //...
         'cos' => [
             'driver' => 'cos',
-            'region'          => env('COS_REGION', 'ap-guangzhou'),
-            'credentials'     => [
-                'appId'     => env('COS_APP_ID'),
-                'secretId'  => env('COS_SECRET_ID'),
-                'secretKey' => env('COS_SECRET_KEY'),
+            
+            'app_id'     => env('COS_APP_ID'),
+            'secret_id'  => env('COS_SECRET_ID'),
+            'secret_key' => env('COS_SECRET_KEY'),
+            'region'     => env('COS_REGION', 'ap-guangzhou'),
+            
+            'bucket'     => env('COS_BUCKET'), 
+            'cdn'        => env('COS_CDN'),
+            'signed_url' => false,
+            
+            'guzzle' => [
+                'timeout' => env('COS_TIMEOUT', 60),
+                'connect_timeout' => env('COS_CONNECT_TIMEOUT', 60),
             ],
-            'timeout'         => env('COS_TIMEOUT', 60),
-            'connect_timeout' => env('COS_CONNECT_TIMEOUT', 60),
-            'bucket'          => env('COS_BUCKET'),
-            'cdn'             => env('COS_CDN'),
-            'scheme'          => env('COS_SCHEME', 'https'),
-            'read_from_cdn'   => env('COS_READ_FROM_CDN', false),
         ],
         //...
      ]
  ];
  ```
+
+> 🚨 请注意：example-1230000001.cos.ap-guangzhou.mycloud.com
+>
+> 其中：bucket: example, app_id: 1230000001, region: ap-guangzhou
 
 # Usage
 
