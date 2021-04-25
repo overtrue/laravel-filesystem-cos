@@ -32,7 +32,7 @@ $ composer require "overtrue/laravel-filesystem-cos" -vvv
             'secret_key' => env('COS_SECRET_KEY'),
             'region'     => env('COS_REGION', 'ap-guangzhou'),
             
-            'bucket'     => env('COS_BUCKET'), 
+            'bucket'     => env('COS_BUCKET'),  // 不带数字 app_id 后缀
             'cdn'        => env('COS_CDN'),
             'signed_url' => false,
             
