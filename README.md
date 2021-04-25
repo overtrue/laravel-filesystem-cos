@@ -36,6 +36,8 @@ $ composer require "overtrue/laravel-filesystem-cos" -vvv
             'cdn'        => env('COS_CDN'),
             'signed_url' => false,
             
+            'prefix' => env('COS_PATH_PREFIX'), // 全局路径前缀
+            
             'guzzle' => [
                 'timeout' => env('COS_TIMEOUT', 60),
                 'connect_timeout' => env('COS_CONNECT_TIMEOUT', 60),
