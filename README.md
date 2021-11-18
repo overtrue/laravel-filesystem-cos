@@ -2,6 +2,8 @@
 
 [Tencent Cloud COS](https://cloud.tencent.com/product/cos) storage for Laravel based on [overtrue/flysystem-cos](https://github.com/overtrue/flysystem-cos).
 
+[![Sponsor me](https://raw.githubusercontent.com/overtrue/overtrue/master/sponsor-me-button-s.svg)](https://github.com/sponsors/overtrue)
+
 # Requirement
 
 - PHP >= 7.4
