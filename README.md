@@ -1,4 +1,4 @@
-# Laravel filesystem COS 
+# Laravel filesystem COS
 
 [Tencent Cloud COS](https://cloud.tencent.com/product/cos) storage for Laravel based on [overtrue/flysystem-cos](https://github.com/overtrue/flysystem-cos).
 
@@ -6,7 +6,7 @@
 
 # Requirement
 
-- PHP >= 7.4
+-   Laravel >= 9.0
 
 # Installation
 
@@ -18,37 +18,35 @@ $ composer require "overtrue/laravel-filesystem-cos" -vvv
 
 1. Add a new disk to your `config/filesystems.php` config:
 
-🚨 当前为 v2 版本，v2 和 v1 在配置写法上有差异，升级请注意。
+```php
+<?php
 
- ```php
- <?php
+return [
+   'disks' => [
+       //...
+       'cos' => [
+           'driver' => 'cos',
 
- return [
-    'disks' => [
-        //...
-        'cos' => [
-            'driver' => 'cos',
-            
-            'app_id'     => env('COS_APP_ID'),
-            'secret_id'  => env('COS_SECRET_ID'),
-            'secret_key' => env('COS_SECRET_KEY'),
-            'region'     => env('COS_REGION', 'ap-guangzhou'),
-            
-            'bucket'     => env('COS_BUCKET'),  // 不带数字 app_id 后缀
-            'cdn'        => env('COS_CDN'),
-            'signed_url' => false,
-            
-            'prefix' => env('COS_PATH_PREFIX'), // 全局路径前缀
-            
-            'guzzle' => [
-                'timeout' => env('COS_TIMEOUT', 60),
-                'connect_timeout' => env('COS_CONNECT_TIMEOUT', 60),
-            ],
-        ],
-        //...
-     ]
- ];
- ```
+           'app_id'     => env('COS_APP_ID'),
+           'secret_id'  => env('COS_SECRET_ID'),
+           'secret_key' => env('COS_SECRET_KEY'),
+           'region'     => env('COS_REGION', 'ap-guangzhou'),
+
+           'bucket'     => env('COS_BUCKET'),  // 不带数字 app_id 后缀
+           'cdn'        => env('COS_CDN'),
+           'signed_url' => false,
+
+           'prefix' => env('COS_PATH_PREFIX'), // 全局路径前缀
+
+           'guzzle' => [
+               'timeout' => env('COS_TIMEOUT', 60),
+               'connect_timeout' => env('COS_CONNECT_TIMEOUT', 60),
+           ],
+       ],
+       //...
+    ]
+];
+```
 
 > 🚨 请注意：example-1230000001.cos.ap-guangzhou.mycloud.com
 >
@@ -77,19 +75,15 @@ $disk->move('old/file1.jpg', 'new/file1.jpg');
 
 // get file contents
 $contents = $disk->read('folder/my_file.txt');
-
-// get file url
-$url = $disk->getUrl('folder/my_file.txt');
 ```
 
 [Full API documentation.](http://flysystem.thephpleague.com/api/)
 
-## :heart: Sponsor me 
+## :heart: Sponsor me
 
 [![Sponsor me](https://github.com/overtrue/overtrue/blob/master/sponsor-me.svg?raw=true)](https://github.com/sponsors/overtrue)
 
 如果你喜欢我的项目并想支持它，[点击这里 :heart:](https://github.com/sponsors/overtrue)
-
 
 ## Project supported by JetBrains
 
@@ -102,7 +96,6 @@ Many thanks to Jetbrains for kindly providing a license for me to work on this a
 > 想知道如何从零开始构建 PHP 扩展包？
 >
 > 请关注我的实战课程，我会在此课程中分享一些扩展开发经验 —— [《PHP 扩展包实战教程 - 从入门到发布》](https://learnku.com/courses/creating-package)
-
 
 # License
 

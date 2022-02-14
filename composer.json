@@ -2,6 +2,7 @@
     "name": "overtrue/laravel-filesystem-cos",
     "description": "A Cos storage filesystem for Laravel.",
     "require": {
+        "laravel/framework": "^9.0",
         "overtrue/flysystem-cos": "^5.0.0"
     },
     "require-dev": {
