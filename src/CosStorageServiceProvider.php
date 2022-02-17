@@ -2,6 +2,7 @@
 
 namespace Overtrue\LaravelFilesystem\Cos;
 
+use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
 use League\Flysystem\Filesystem;
@@ -17,7 +18,7 @@ class CosStorageServiceProvider extends ServiceProvider
         Storage::extend('cos', function () {
             $adapter = new CosAdapter(\config('filesystems.disks.cos'));
 
-            return new Filesystem($adapter);
+            return new FilesystemAdapter(new Filesystem($adapter), $adapter);
         });
     }
 
