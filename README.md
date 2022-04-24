@@ -1,5 +1,11 @@
 # Laravel filesystem COS
 
+![Laravel Octane Ready Status](https://img.shields.io/badge/Octance-ready-green?style=flat-square)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/overtrue/laravel-filesystem-cos?style=flat-square)
+![GitHub License](https://img.shields.io/github/license/overtrue/laravel-filesystem-cos?style=flat-square)
+![Packagist Downloads](https://img.shields.io/packagist/dt/overtrue/laravel-filesystem-cos?style=flat-square)
+
+
 [Tencent Cloud COS](https://cloud.tencent.com/product/cos) storage for Laravel based on [overtrue/flysystem-cos](https://github.com/overtrue/flysystem-cos).
 
 [![Sponsor me](https://github.com/overtrue/overtrue/blob/master/sponsor-me-button-s.svg?raw=true)](https://github.com/sponsors/overtrue)
